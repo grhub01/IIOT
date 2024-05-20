@@ -13,9 +13,6 @@ services:
       - "8885:8885"
     volumes:
       - hb_vol:/usr/local/highbyte/config
-volumes:
-  hb_vol:
-
 
   ignition:
     container_name: ignition
@@ -39,8 +36,6 @@ volumes:
       --
       wrapper.java.initmemory=1024
       -Dignition.allowunsignedmodules=true
-volumes:
-  gw-data:
 
   postgresql:
     container_name: postgres
@@ -68,9 +63,13 @@ volumes:
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
+
 volumes:
+  hb_vol:
+  gw-data:
   pgdata:
   pgadmin-data:
+
 
 networks:
   default:
