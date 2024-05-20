@@ -1,10 +1,12 @@
 version: '3.8'
 
 services:
+
   highbyte:
     container_name: highbyte
     hostname: highbyte
     image: highbyte:3.4.0
+    restart: always
     ports:
       - "45245:45245"
       - "1885:1885"
@@ -15,12 +17,11 @@ volumes:
   hb_vol:
 
 
-services:
-  # Ignition Gateway
-  gateway:
+  ignition:
     container_name: ignition
     hostname: ignition
     image: inductiveautomation/ignition:latest
+    restart: always
     ports:
       - 9088:8088
       - 9043:8043
@@ -40,6 +41,36 @@ services:
       -Dignition.allowunsignedmodules=true
 volumes:
   gw-data:
+
+  postgresql:
+    container_name: postgres
+    hostname: postgres
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    hostname: pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  pgdata:
+  pgadmin-data:
 
 networks:
   default:
