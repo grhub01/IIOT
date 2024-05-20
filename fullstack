@@ -22,7 +22,7 @@ services:
     ports:
       - 9088:8088
       - 9043:8043
-      - 62543:62541
+      - 62541:62541
     volumes:
       - gw-data:/usr/local/bin/ignition/data
     environment:
