@@ -9,8 +9,8 @@ services:
     restart: always
     ports:
       - "45245:45245"
-      - "1885:1885"
-      - "8885:8885"
+      - "1885:1883"
+      - "8885:8883"
     volumes:
       - hb_vol:/usr/local/highbyte/config
 
@@ -23,7 +23,8 @@ services:
       - "9088:8088"
       - "9043:8043"
       - "62541:62541"
-      - "1881:1881"
+      - "1881:1883"
+      - "8881:8883"
     volumes:
       - gw-data:/usr/local/bin/ignition/data
     environment:
