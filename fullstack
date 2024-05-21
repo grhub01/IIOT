@@ -20,9 +20,10 @@ services:
     image: inductiveautomation/ignition:latest
     restart: always
     ports:
-      - 9088:8088
-      - 9043:8043
-      - 62541:62541
+      - "9088:8088"
+      - "9043:8043"
+      - "62541:62541"
+      - "1881:1881"
     volumes:
       - gw-data:/usr/local/bin/ignition/data
     environment:
