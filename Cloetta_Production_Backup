@@ -39,6 +39,15 @@ services:
       - MYSQL_PASSWORD=admin
     command: 'mysqld --innodb-flush-method=fsync'
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: admin
+      PMA_PASSWORD: admin
+    ports:
+      - "7080:80"
 
 volumes:
   gw-cloetta:
