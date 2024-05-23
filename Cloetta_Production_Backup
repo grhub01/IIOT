@@ -52,3 +52,7 @@ services:
 volumes:
   gw-cloetta:
   db-mariadb:
+
+networks:
+  default:
+    name: cloettanet
