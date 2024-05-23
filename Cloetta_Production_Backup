@@ -54,6 +54,7 @@ services:
       PMA_HOST: mariadb
       PMA_USER: admin
       PMA_PASSWORD: admin
+      UPLOAD_LIMIT: 100000000
     restart: unless-stopped
 
 volumes:
