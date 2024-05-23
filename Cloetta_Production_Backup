@@ -25,7 +25,7 @@ services:
       -Dignition.allowunsignedmodules=true
   
   mariadb:
-    build: .
+    image: mariadb:latest
     container_name: mariadb
     restart: unless-stopped
     volumes:
@@ -39,7 +39,7 @@ services:
       - MYSQL_PASSWORD=admin
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin:latest
     restart: always
     ports:
       - 7080:80
