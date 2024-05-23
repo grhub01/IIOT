@@ -48,6 +48,7 @@ services:
   
   phpmyadmin:
     image: phpmyadmin:latest
+    container_name: phpmyadmin
     ports:
       - 7878:80
     environment:
