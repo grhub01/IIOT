@@ -23,7 +23,23 @@ services:
       --
       wrapper.java.initmemory=1024
       -Dignition.allowunsignedmodules=true
+  
+  mariadb:
+    build: .
+    container_name: db-mariadb
+    restart: unless-stopped
+    volumes:
+      - db-mariadb:/var/lib/mysql:rw
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=ignition
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    command: 'mysqld --innodb-flush-method=fsync'
 
 
 volumes:
   gw-cloetta:
+  db-mariadb:
