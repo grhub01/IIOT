@@ -34,17 +34,17 @@ services:
       - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=ignition
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
+      - MYSQL_DATABASE=ignition
 
-  adminer:
-    image: adminer:latest
-    container_name: adminer
-    restart: always
-    ports:
-      - 7777:8080
-    command: ["php", "-d", "post_max_size=5000M", "-d", "upload_max_filesize=5000M", "-S", "0.0.0.0:8080", "-t", "/var/www/html"]
+  #adminer:
+  #  image: adminer:latest
+  #  container_name: adminer
+  #  restart: always
+  #  ports:
+  #    - 7777:8080
+  #  command: ["php", "-d", "post_max_size=5000M", "-d", "upload_max_filesize=5000M", "-S", "0.0.0.0:8080", "-t", "/var/www/html"]
   
   phpmyadmin:
     image: phpmyadmin:latest
