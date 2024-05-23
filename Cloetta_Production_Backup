@@ -35,8 +35,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: ignition
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
 
   #adminer:
   #  image: adminer:latest
@@ -53,8 +51,8 @@ services:
       - 7878:80
     environment:
       PMA_HOST: mariadb
-      PMA_USER: user
-      PMA_PASSWORD: password
+      PMA_USER: admin
+      PMA_PASSWORD: admin
       UPLOAD_LIMIT: 10000000000
     restart: unless-stopped
 
