@@ -3,8 +3,8 @@ version: '3.8'
 services:
 
   ignition:
-    container_name: ignition
-    hostname: ignition
+    container_name: ignition_cloetta
+    hostname: ignition_cloetta
     image: inductiveautomation/ignition:latest
     restart: always
     ports:
@@ -18,7 +18,7 @@ services:
       - IGNITION_EDITION=standard
       - TZ=America/Chicago
     command:
-      -n ignition-trial
+      -n ignition_cloetta
       -m 4096
       --
       wrapper.java.initmemory=1024
