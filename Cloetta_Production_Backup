@@ -45,7 +45,17 @@ services:
     ports:
       - 7777:8080
     command: ["php", "-d", "post_max_size=5000M", "-d", "upload_max_filesize=5000M", "-S", "0.0.0.0:8080", "-t", "/var/www/html"]
-      
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 8888:80
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: admin
+      PMA_PASSWORD: admin
+    restart: unless-stopped
+
 volumes:
   gw-cloetta:
   db-mariadb:
