@@ -26,10 +26,10 @@ services:
   
   mariadb:
     build: .
-    container_name: db-mariadb
+    container_name: mariadb
     restart: unless-stopped
     volumes:
-      - db-mariadb:/var/lib/mysql:rw
+      - db-mariadb:/var/lib/mysql
     ports:
       - "3307:3306"
     environment:
@@ -37,17 +37,17 @@ services:
       - MYSQL_DATABASE=ignition
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
-    command: 'mysqld --innodb-flush-method=fsync'
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: always
+    ports:
+      - 7080:80
     environment:
       PMA_HOST: mariadb
       PMA_USER: admin
       PMA_PASSWORD: admin
-    ports:
-      - "7080:80"
+
 
 volumes:
   gw-cloetta:
