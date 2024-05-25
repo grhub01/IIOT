@@ -66,12 +66,24 @@ services:
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
+  grafana:
+    container_name: grafana
+    hostname: grafana
+    image: grafana/grafana-oss:latest
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+    - grafana-data:/var/lib/grafana
+    
+
 
 volumes:
   hb_vol:
   gw-data:
   pgdata:
   pgadmin-data:
+  grafana-data:
 
 
 networks:
