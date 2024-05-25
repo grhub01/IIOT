@@ -72,7 +72,7 @@ services:
     image: grafana/grafana-oss:latest
     restart: always
     ports:
-      - '3000:3000'
+      - '3333:3000'
     volumes:
     - grafana-data:/var/lib/grafana
     
