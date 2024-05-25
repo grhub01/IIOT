@@ -40,6 +40,28 @@ services:
       wrapper.java.initmemory=1024
       -Dignition.allowunsignedmodules=true
 
+  ignition2:
+    container_name: ignition2
+    hostname: ignition2
+    image: inductiveautomation/ignition:latest
+    restart: always
+    ports:
+      - "7088:8088"
+    volumes:
+      - gw2-data:/usr/local/bin/ignition/data
+    environment:
+      - ACCEPT_IGNITION_EULA=Y
+      - GATEWAY_ADMIN_USERNAME=admin
+      - GATEWAY_ADMIN_PASSWORD=admin
+      - IGNITION_EDITION=standard
+      - TZ=America/Chicago
+    command:
+      -n ignition-trial2
+      -m 4096
+      --
+      wrapper.java.initmemory=1024
+      -Dignition.allowunsignedmodules=true
+
   postgresql:
     container_name: postgres
     hostname: postgres
@@ -81,6 +103,7 @@ services:
 volumes:
   hb_vol:
   gw-data:
+  gw2-data:
   pgdata:
   pgadmin-data:
   grafana-data:
